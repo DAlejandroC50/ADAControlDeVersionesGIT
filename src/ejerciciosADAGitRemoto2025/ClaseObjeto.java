@@ -15,6 +15,7 @@ public class ClaseObjeto {
 		nombre=name;
 		peso=weight;
 		color=col;
+		
 	}
 
 	//Métodos para las variables
@@ -42,6 +43,11 @@ public class ClaseObjeto {
 	//Método para obtener el número de los elementos en la lista
 	public int getNumero() {
 		return numero;
+	}
+
+	public void setNumero(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

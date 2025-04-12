@@ -17,6 +17,8 @@ public class JFrameFormVacioGIT extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private ListaEnlazadaDoble lista = new ListaEnlazadaDoble();
+	private int contador = 1;
 
 	/**
 	 * Launch the application.
@@ -78,11 +80,35 @@ public class JFrameFormVacioGIT extends JFrame {
 		
 		JButton btnInsertar = new JButton("Insertar");
 		btnInsertar.setBounds(33, 131, 89, 23);
-		contentPane.add(btnInsertar);
+		contentPane.add(btnInsertar);btnInsertar.addActionListener(e -> {
+		    String nombre = textField.getText();
+		    String peso = textField_1.getText();
+		    String color = textField_2.getText();
+
+		    ClaseObjeto nuevo = new ClaseObjeto(nombre, peso, color);
+		    nuevo.setNumero(contador++);
+		    
+		    lista.InsertarEnMedio(nuevo);
+
+		    System.out.println("Objeto insertado: " + nombre);
+		});
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(159, 131, 89, 23);
 		contentPane.add(btnEliminar);
+		btnEliminar.addActionListener(e -> {
+		    String input = javax.swing.JOptionPane.showInputDialog("Número del objeto a eliminar:");
+		    if (input != null) {
+		        try {
+		            int num = Integer.parseInt(input);
+		            lista.eliminarDeEnmedio(num);
+		            System.out.println("Intentando eliminar objeto con número: " + num);
+		        } catch (NumberFormatException ex) {
+		            System.out.println("Número inválido.");
+		        }
+		    }
+		});
+
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(288, 131, 89, 23);
