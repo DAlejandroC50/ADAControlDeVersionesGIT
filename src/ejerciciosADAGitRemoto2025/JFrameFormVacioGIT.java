@@ -113,5 +113,29 @@ public class JFrameFormVacioGIT extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(288, 131, 89, 23);
 		contentPane.add(btnBuscar);
+		btnBuscar.addActionListener(e -> {
+		    String input = javax.swing.JOptionPane.showInputDialog("Número del objeto a buscar:");
+		    if (input != null) {
+		        try {
+		            int num = Integer.parseInt(input);
+		            ClaseObjeto encontrado = lista.buscarMascota(num);
+		            
+		            if (encontrado != null) {
+		                textField.setText(encontrado.getNombre());
+		                textField_1.setText(encontrado.getPeso());
+		                textField_2.setText(encontrado.getColor());
+		                System.out.println("Objeto encontrado: " + encontrado.getNombre());
+		            } else {
+		                javax.swing.JOptionPane.showMessageDialog(null, "Objeto no encontrado.");
+		                textField.setText("");
+		                textField_1.setText("");
+		                textField_2.setText("");
+		            }
+		        } catch (NumberFormatException ex) {
+		            System.out.println("Número inválido.");
+		        }
+		    }
+		});
+
 	}
 }
