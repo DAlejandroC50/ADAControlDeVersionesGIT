@@ -1,7 +1,5 @@
 package ejerciciosADAGitRemoto2025;
 
-import adaLista.MascotaNodo;
-
 public class ListaEnlazadaDoble {
 	public ClaseObjeto primero;
 	public ClaseObjeto ultimo;
